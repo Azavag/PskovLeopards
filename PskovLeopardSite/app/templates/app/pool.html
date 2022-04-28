@@ -1,0 +1,143 @@
+﻿
+{%block content%}
+
+<style>
+    body 
+    {
+        background: linear-gradient(90deg, #cfecd0, #ffc5ca);
+    }
+</style>
+<head>
+    {% load static %}<script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
+</head>
+
+<body>
+   
+{% if form != None%}
+<br /><h2>Отправьте, пожалуйста, заполненную анкету</h2><br />
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <label id="pname" for="{{form.name.id_for_label}}">{{ form.name.label }}:</label>
+            {{form.name }}<br /><br />
+            <label for="{{form.city.id_for_label}}">{{form.city.label }}:</label>
+            {{form.city }}<br /><br />
+            <label for="{{form.gender.id_for_label}}">{{form.gender.label }}:</label>
+            {{form.gender }}<br /><br />  
+            <label for="{{form.job.id_for_label}}">{{form.job.label }}:</label>
+            {{form.job }}<br /><br />
+            <label for="{{form.internet.id_for_label}}">{{form.internet.label }}:</label>
+            {{form.internet }}<br /><br />
+             <label for="{{form.notice.id_for_label}}">{{form.notice.label }}:</label>
+            {{form.notice }}<br /><br />
+            <label for="{{form.email.id_for_label}}">{{form.email.label }}:</label>
+            {{form.email }}<br /><br />
+             <label for="{{form.message.id_for_label}}">{{form.message.label }}:</label>
+            {{form.message }}<br /><br />
+            <input id="button" type="submit" value="Отправить" />
+        </form>
+
+    </div>
+{% else %}
+<br /><h2>Благодарим за предоставленную информацию!</h2>
+        <h3>Вы сообщили о себе следующее:</h3>
+<ul>
+    <li><span>Имя:</span> {{data.name }}</li>
+    <li><span>Город:</span> {{data.city }}</li>
+    <li><span>Пол:</span> {{data.gander }}</li>
+    <li><span>Работа:</span> {{data.job }}</li>
+    <li><span>В интернете:</span> {{data.internet }}</li>
+    <li><span>Получать новости сайта на e-mail:</span> {{data.notice }}</li>
+    <li><span>Ваш e-email:</span> {{data.email }}</li>
+    <li><span>Инфорамция о себе:</span> {{data.message }}</li>
+   
+
+</ul>
+   <form action="/" target="_blank">
+        <button>Вернуться на сайт</button>
+   </form>
+{%endif %}
+</body>
+
+ <script>
+    function id_name_focus()
+    {
+        $('#id_name').css('background-color', 'Khaki');
+            
+    }
+    function id_name_blur()
+    {
+        $('#id_name').css('background-color', 'white');
+    }
+        
+    function id_city_focus()
+    {
+        $('#id_city').css('background-color', 'Khaki');
+            
+    }                
+    function id_city_blur()
+    {
+        $('#id_city').css('background-color', 'white');
+    }
+
+    function id_job_focus()
+    {
+        $('#id_job').css('background-color', 'Khaki');
+    }
+    function id_job_blur()
+    {
+        $('#id_job').css('background-color', 'white');
+    }
+
+    function id_email_focus()
+    {
+        $('#id_email').css('background-color', 'Khaki');
+    }
+    function id_email_blur()
+    {
+        $('#id_email').css('background-color', 'white');
+    }
+
+    function id_message_focus()
+    {
+        $('#id_message').css('background-color', 'Khaki');
+    }
+    function id_message_blur()
+    {
+        $('#id_message').css('background-color', 'white');
+    }
+
+    function button_mouseover()
+    {
+        $('#button').css('background-color', 'LimeGreen');
+    }
+
+    function button_mouseout()
+    {
+        $('#button').css('background-color', 'lightgrey');
+    }
+     
+
+     $('#id_name').focus(id_name_focus);
+     $('#id_name').blur(id_name_blur);
+
+     $('#id_city').focus(id_city_focus);
+     $('#id_city').blur(id_city_blur);
+
+     $('#id_job').focus(id_job_focus);
+     $('#id_job').blur(id_job_blur);
+
+     $('#id_email').focus(id_email_focus);
+     $('#id_email').blur(id_email_blur);
+
+     $('#id_message').focus(id_message_focus);
+     $('#id_message').blur(id_message_blur);
+
+     $('#button').mouseover(button_mouseover);
+     $('#button').mouseout(button_mouseout);
+
+    </script>
+{% endblock %}
+
+
+

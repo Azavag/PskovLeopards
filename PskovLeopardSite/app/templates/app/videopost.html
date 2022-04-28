@@ -1,0 +1,34 @@
+﻿{% extends "app/layout.html" %}
+<!DOCTYPE html>
+{% block content %}
+
+
+<h1 style="text-align:center; margin-top: 15px">{{ title }}</h1><hr style="margin-bottom:45px"/>
+
+<div style="margin-left: 130px; width: 400px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: justify;
+  margin-right:150px">
+    <h2 style="text-align:center">Гол Матвея Мичкова</h2>
+    <video src="/media/видео2.mp4" controls="controls" width="400" height="300" poster="/media/zastavka2.jpg"></video>
+</div>
+
+<div style="margin-left: 60px; width: 400px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: justify;
+  margin-right:150px">
+    <h2 style="text-align:center">Финальный свисток</h2>
+    <video src="/media/видео3.mp4" controls="controls" width="400" height="300" poster="/media/zastavka3.jpg"></video>
+</div>
+
+<div style="margin-left: 60px;  width: 400px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: justify;
+  margin-right:10px">
+    <h2 style="text-align:center">После победы</h2>
+    <video src="/media/видео1.mp4" controls="controls" width="400" height="300" poster="/media/zastavka1.jpg"></video>
+</div>
+{% endblock %}

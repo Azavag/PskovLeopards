@@ -1,0 +1,16 @@
+﻿{% extends "app/layout.html" %}
+
+<!DOCTYPE html>
+ {% block content %}
+<h2>{{title}}</h2>
+<br />
+{% for post in posts %}
+<hr />
+<div>
+    <h3>{{post.title}}</h3>
+    <p>{{post.description}}</p>
+     <h6>{{post.posted}}</h6>
+    <p><a href="{% url 'blogpost' post.id %}"> Читать далее</a></p>
+</div>
+{%endfor%}
+{%endblock%}

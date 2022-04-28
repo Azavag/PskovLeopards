@@ -1,0 +1,793 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+	
+    <title>Official Pskov Leopards Website</title>	
+ 	<style>
+    .custom-btn {
+    width: 130px;
+    height: 35px;
+    color: #000;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+
+.btn-16 {
+    border: none;
+    color: #000;
+    background-color: aliceblue;
+    z-index: 1;
+}
+
+    .btn-16:after {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 100%;
+        top: 0;
+        left: 0;
+        direction: rtl;
+        z-index: -1;
+        box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+        transition: all 0.3s ease;
+    }
+
+    .btn-16:hover {
+        
+    }
+
+    .btn-16:hover:after {
+        left: auto;
+        right: 0;
+        width: 100%;
+    }
+
+    .btn-16:active {
+        top: 2px;
+    }
+</style>
+    <!-- new relic -->
+    <!-- иконка сайта -->
+    {% load static %}<link rel="shortcut icon" href="{%static "img/championat-com.png" %}">
+ 
+    <script type="text/javascript">
+    
+        !function(a,b){"function"!=typeof define||!define.amd||"undefined"!=typeof bam&&"function"==typeof bam.define?a.deviceBootstrap=b():define("../device",[],b)}(this,function(){function a(a,b){return a&&b?a[b]:a}function b(a){var b=a.split(w).slice(0,3);return a&&b.length<2&&b.push(0),b.join(".")}function c(a){return a=a||navigator.userAgent,D[a]?D[a]:this instanceof c?(D[a]=this,this.userAgent=a,this.is={},this.platform=this.getPlatform(),this.platformVersion=this.getPlatformVersion(),this.browser=this.getBrowser(),this.browserVersion=this.getBrowserVersion(),void(this.formFactor=this.getFormFactor())):new c(a)}var d="(",e=")",f="i",g="|",h="desktop",i="version",j="",k=function(a,b){return new RegExp(a,b||f)},l="iP(?:hone|ad|od)",m="(?:BlackBerry|BB10| RIM )",n="Android",o="Windows",p="WPDesktop",q=o+" Phone",r="Trident(?:.*?Touch(?:.*?Mobile))",s="Linux(?!.*Android)",t="Macintosh",u="CrOS",v=d+"?:"+[t,o,s,u].join(g)+e,w=/[\._]/,x={windowsphone:k(r+g+q+g+p),windows:k(o),ios:k(l),blackberry:k(m),android:k(n),linux:k(s),macintosh:k(t),chromebook:k(u)},y={desktop:/(?:Windows NT(?!.*WPDesktop)(?!.*Xbox))/i,tablet:k(d+["Tablet|iPad","\\sNT.*?"+r,n+"(?!.*Mobi)","silk",m+".*?Tablet","xbox"].join(g)+e),phone:k(d+["Mobi|Mobile","WPDesktop",l,r,m].join(g)+e)},z={tablet:k(d+["Tablet|iPad","\\sNT.*?"+r,n+"(?!.*Mobi)","silk",m+".*?Tablet"].join(g)+e),phone:k(d+["Mobi|Mobile",l,r,m].join(g)+e),desktop:k(v)},A={msie:/msie|iemobile|trident/i,edge:/edge/i,android:/android(?!.+(?:chrome|silk))/i,chrome:/chrome|crios/i,firefox:/firefox/i,opera:/opera(?!.*?mini)\//i,operamini:/opera mini/i,silk:/silk/i,safari:/safari/i},B={webkit:/AppleWebKit/i,gecko:/gecko\//i,trident:/trident/i,edge:/Edge/i},C={desktop:"desktop",other:h,phone:"phone",tablet:"tablet"},D={};return c.prototype={getPlatform:function(){return this.test(x)||h},getPlatformVersion:function(){return b(this.match(k("(?:"+(this.is.blackberry?i:this.platform)+"|"+q+"|OS)[^\\d]+([\\d\\.\\_]+)","ig"),1))},getBrowser:function(){return this.test(B),this.test(A)||h},getFormFactor:function(){var a="";return a=this.is.msie?y:z,C[this.test(a)]||C.other},getBrowserVersion:function(){var a=this.browser,c="[\\/\\s]";return this.is.chrome&&this.is.ios?a="crios":this.is.opera?a=i:this.is.msie&&(a=a+g+"IEMobile"+g+"rv",c="[\\/\\:\\s]"),b(this.match(k("(?:"+a+g+i+")"+c+"([\\d\\.]+)","i"),1))},match:function(b,c){return a(b.exec(this.userAgent),c)||j},test:function(a){var b,c,d,e=this.userAgent;for(b in a)c=a[b].test(e),this.is[b]=this.is[b]||c&&!d,c&&!d&&(d=b);return d}},c});
+    
+        //Device Detection
+        (function(){
+    
+            window.getStartupDeviceTypeString = function() {
+    
+                var type = "";
+    
+                if (window.deviceBootstrap) {
+    		           type = !type ? window.deviceBootstrap().formFactor : type;
+                } else {
+    	            console.error("Device Detection", "Module not loaded. Check /templates/meta.html. Pass ?device='[formFactor]' for testing");
+                }
+    
+                return type;
+            }
+    
+            document.getElementsByTagName('html')[0].className += ' device-' + getStartupDeviceTypeString();
+    
+        })();
+    
+    </script>
+   
+    <!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="//www-league.nhlstatic.com/nhl.com/builds/site-core/ea28dcb58e8873bcfe5ee9b0cccbb105e3039154_1645635133/styles/nhl.css.gz" />
+	<link rel="stylesheet" type="text/css" href="//www-league.nhlstatic.com/clubs/builds/30/style/nhl/en/team-30.css.gz" />
+
+	<script type="text/javascript">
+	    (function() {
+	
+	        var siteLess = {"desktop":"site-all","tablet":"site-all","phone":"site-all"};
+	        var sectionLess = {};
+	        var pageLess = {"desktop":"home","tablet":"home","phone":"home"};
+	        var type =  getStartupDeviceTypeString();
+	
+			if (siteLess[type]) {
+	                document.write('<link rel="stylesheet" type="text/css" href="//www-league.nhlstatic.com/nhl.com/builds/site-core/ea28dcb58e8873bcfe5ee9b0cccbb105e3039154_1645635133/styles/'+siteLess[type]+'.css.gz" />');
+	        }
+	
+	        if (sectionLess[type]) {
+	                document.write('<link rel="stylesheet" type="text/css" href="//www-league.nhlstatic.com/nhl.com/sections/homepage/builds/3efdbc90a68b4f68ad9622de80cf91ed0e42994e_1646416756/styles/'+sectionLess[type]+'.css.gz" />');
+	        }
+	
+	        if (pageLess[type]) {
+	                document.write('<link rel="stylesheet" type="text/css" href="//www-league.nhlstatic.com/nhl.com/sections/homepage/builds/3efdbc90a68b4f68ad9622de80cf91ed0e42994e_1646416756/styles/'+pageLess[type]+'.css.gz" />');
+	        }
+	
+	    })();
+	
+	</script>
+	
+</head>
+
+<body id="homepage_index" class="lang-en_US team-30">
+ 
+    <!-- header-->
+                            
+    <!-- club language/account bar -->
+    <div class="top-nav-languagebar-wrapper">
+    <div class="top-nav-languagebar">
+        {%if user.is_authenticated%}
+            <span style="font-family:{"%Sintony%"},Arial,sans-serif; font-weight: 500; line-height: 1; color: inherit;" class="navbar-brand">Привет, фанат {{ user.username }}!</span>
+            
+        {% endif%} 
+        
+    <span class="top-nav-languagebar__title"></span>  
+                                    
+    <div class="top-nav-languagebar__right-links"  >
+            <div class="top-nav__account">
+                <div role="button" class="top-nav__account__icon-wrapper" tabindex="0" aria-expanded="false" aria-label="profile dropdown">
+                     {%if user.is_authenticated%}
+                        <a title="Профиль" href="{% url 'timetable' %}" class="top-nav__account__icon top-nav__icon top-nav__icon--account"></a>            
+                     {% endif%} 
+                </div>
+                                              
+            </div> 
+            <!--Кнопки авторизауции-->
+            {%if user.is_authenticated%}
+                <form action="{% url 'logout' %}">
+                    <button style="background-color:#cb3434" id="out" class="custom-btn btn-16">Выйти</button>
+                </form>            
+            {%else%}
+                <form action="{% url 'login' %}">
+                    <button style="background-color:#1b9740" id="enter" class="custom-btn btn-16" >Войти</button>
+                </form>
+        
+            {% endif%} 
+            
+    </div>
+    </div>
+                          
+    <!--One Trust Snippet-->
+                            
+    
+    <div class="top-nav__static-wrapper top-nav__static-wrapper--club">
+        <div class="top-nav-outer-wrapper top-nav-outer-wrapper--club">
+            <div class="top-nav-wrapper">
+                <na class="top-nav"data-is-club data-header-mini-dict-headersearchnoresultsfound             ="No Results Found">                                           
+                        <!--название клуба-->   
+                        <div class="top-nav__club-tagline">
+                            <a class="top-nav__club-tagline-link" href="/" title="Pskov Leopards">
+                                {% load static %}<img  style="max-width:512px;margin-left:0px;margin-top:0;line-height:97px;height:97px" alt="Pskov Leopards" title="" src="{% static "img/PskovLeoTitle.png" %}" 5x">
+                            </a>
+                        </div>
+                        <!-- Лого клуба -->
+                        <div class="top-nav__club-logo">
+                            <a class="top-nav__club-logo-link"
+                                href="/"
+                                title="Pskov Leopards">
+                                {% load static %}<img src= "{% static "img/PskovLeoLogo.png" %}"  
+                                style="line-height:75px;height:75px;margin-top:-13px;margin-left:6px" alt="Pskov Leopards">                            
+                            </a>
+                        </div>
+                        <!-- Панель навигации -->    
+                        <div class="top-nav__primary">
+                            <button class="top-nav__hamburger top-nav__icon" aria-label="Navigation Menu " aria-expanded="false"></button>
+                            <div class="top-nav__primary__menu-wrapper top-nav__hamburger-menu-wrapper" role="navigation">
+                                <ul class="top-nav__primary__menu top-nav__hamburger-menu">
+                                    <li class="top-nav__primary__menu__item top-nav__primary__menu__item--account top-nav__primary__menu__item--default">
+                                        <div class="top-nav__primary__menu__item-wrapper">
+                                            <a href="#" class="top-nav__primary__menu__item__link top-nav__primary__menu__item__link--account top-nav__primary__menu__item--account__link"><i class="top-nav__primary__menu__item__link--account-icon top-nav__account__icon top-nav__icon top-nav__icon--account"></i><span class="top-nav__primary__menu__item__link__text--account"></span></a>
+                                        </div>
+                                    </li>
+                                    <!--Новости-->
+                                        <li class="top-nav__primary__menu__item top-nav__primary__menu__item--schedule"
+                                                data-has-secondary
+                                                aria-label="Schedule"
+                                                aria-expanded="false"
+                                        >
+                                            <div class="top-nav__primary__menu__item-wrapper">
+                                                <div class="top-nav__primary__menu__item__link__wrapper">
+                                                    <a class="top-nav__primary__menu__item__link top-nav__primary__menu__item__link--schedule"
+                                                        href="{% url 'blog' %}"
+
+                                                ><span class="top-nav__primary__menu__item__link__text top-nav__primary__menu__item__link__text--schedule">
+                                                        Новости
+                                                    </span></a>
+                                                </div>
+                                                    <button class="top-nav__secondary__button top-nav__icon" aria-label="Schedule" aria-expanded="false"></button>
+                                            </div> 
+                                        </li>
+                                        <!-- Билеты -->
+                                        <li class="top-nav__primary__menu__item top-nav__primary__menu__item--tickets"
+                                                data-has-secondary
+                                                aria-label="Tickets"
+                                                aria-expanded="false"
+                                        >
+                                            <div class="top-nav__primary__menu__item-wrapper">
+                                                <div class="top-nav__primary__menu__item__link__wrapper">
+                                                    <a class="top-nav__primary__menu__item__link top-nav__primary__menu__item__link--tickets"
+                                                        href="{% url 'tickets' %}"
+                                                        
+                                                ><span class="top-nav__primary__menu__item__link__text top-nav__primary__menu__item__link__text--tickets">
+                                                        Билеты
+                                                    </span></a>
+                                                </div>
+                                                    <button class="top-nav__secondary__button top-nav__icon" aria-label="Tickets" aria-expanded="false"></button>
+                                            </div>
+                                        </li>
+                                        <!-- Расписание -->
+                                        <li class="top-nav__primary__menu__item top-nav__primary__menu__item--schedule"
+                                                data-has-secondary
+                                                aria-label="Schedule"
+                                                aria-expanded="false"
+                                        >
+                                            <div class="top-nav__primary__menu__item-wrapper">
+                                                <div class="top-nav__primary__menu__item__link__wrapper">
+                                                    <a class="top-nav__primary__menu__item__link top-nav__primary__menu__item__link--schedule"
+                                                        href="{% url 'timetable' %}"
+
+                                                ><span class="top-nav__primary__menu__item__link__text top-nav__primary__menu__item__link__text--schedule">
+                                                        Расписание
+                                                    </span></a>
+                                                </div>
+                                                    <button class="top-nav__secondary__button top-nav__icon" aria-label="Schedule" aria-expanded="false"></button>
+                                            </div> 
+                                        </li>
+                                      
+                                        <!-- Состав -->
+                                        <li class="top-nav__primary__menu__item top-nav__primary__menu__item--team"
+                                                data-has-secondary
+                                                aria-label="Team"
+                                                aria-expanded="false"
+                                        >
+                                            <div class="top-nav__primary__menu__item-wrapper">
+                                                <div class="top-nav__primary__menu__item__link__wrapper">
+                                                    <a class="top-nav__primary__menu__item__link top-nav__primary__menu__item__link--team"                              
+                                                        href="{% url 'roster' %}">
+
+                                                <span class="top-nav__primary__menu__item__link__text top-nav__primary__menu__item__link__text--team">
+                                                        Состав
+                                                    </span></a>
+                                                </div>
+                                                    <button class="top-nav__secondary__button top-nav__icon" aria-label="Team" aria-expanded="false"></button>
+                                            </div> 
+                                        <!-- Статистика-->
+                                        <li class="top-nav__primary__menu__item top-nav__primary__menu__item--stats"
+                                                data-has-secondary
+                                                aria-label="Stats"
+                                                aria-expanded="false"
+                                        >
+                                            <div class="top-nav__primary__menu__item-wrapper">
+                                                <div class="top-nav__primary__menu__item__link__wrapper">
+                                                    <a class="top-nav__primary__menu__item__link top-nav__primary__menu__item__link--stats"
+                                                        href="{% url 'stats' %}">
+                                                     
+                                                
+                                                    <span class="top-nav__primary__menu__item__link__text top-nav__primary__menu__item__link__text--stats">
+                                                        Статистика
+                                                    </span></a>
+                                                </div>
+                                                    <button class="top-nav__secondary__button top-nav__icon" aria-label="Stats" aria-expanded="false"></button>
+                                            </div>
+                                                                   
+                                        <!-- Магазин-->                    
+                                        <li class="top-nav__primary__menu__item top-nav__primary__menu__item--shop"
+                                                data-has-secondary
+                                                aria-label="Shop"
+                                                aria-expanded="false"
+                                        >
+                                            <div class="top-nav__primary__menu__item-wrapper">
+                                                <div class="top-nav__primary__menu__item__link__wrapper">
+                                                    <a class="top-nav__primary__menu__item__link top-nav__primary__menu__item__link--shop"
+                                                        href="{% url 'shop' %}">
+                                                       <!-- Лого клуба -->
+                                                <span class="top-nav__primary__menu__item__link__text top-nav__primary__menu__item__link__text--shop">
+                                                        Магазин
+                                                    </span></a>
+                                                </div>
+                                                    <button class="top-nav__secondary__button top-nav__icon" aria-label="Shop" aria-expanded="false"></button>
+                                                        
+                                            </div> 
+                                        </li>   
+                                        <!-- Спонсоры-->                    
+                                        <li class="top-nav__primary__menu__item top-nav__primary__menu__item--shop"
+                                                data-has-secondary
+                                                aria-label="Shop"
+                                                aria-expanded="false"
+                                        >
+                                            <div class="top-nav__primary__menu__item-wrapper">
+                                                <div class="top-nav__primary__menu__item__link__wrapper">
+                                                    <a class="top-nav__primary__menu__item__link top-nav__primary__menu__item__link--shop"
+                                                        href="{% url 'links' %}">
+                                                       <!-- Лого клуба -->
+                                                <span class="top-nav__primary__menu__item__link__text top-nav__primary__menu__item__link__text--shop">
+                                                        Партнёрство
+                                                    </span></a>
+                                                </div>
+                                                    <button class="top-nav__secondary__button top-nav__icon" aria-label="Shop" aria-expanded="false"></button>
+                                                        
+                                            </div> 
+                                        </li>  
+                                        
+                                        <!--Добавление новостей-->   
+                                        {% if user.is_superuser %}
+                                        <li class="top-nav__primary__menu__item top-nav__primary__menu__item--shop"
+                                                data-has-secondary
+                                                aria-label="News"
+                                                aria-expanded="false"
+                                        >
+                                            <div class="top-nav__primary__menu__item-wrapper">
+                                                <div class="top-nav__primary__menu__item__link__wrapper">
+                                                    <a class="top-nav__primary__menu__item__link top-nav__primary__menu__item__link--shop"
+                                                        href="{% url 'newpost' %}">
+                                                       <!-- Лого клуба -->
+                                                <span class="top-nav__primary__menu__item__link__text top-nav__primary__menu__item__link__text--shop">
+                                                        Добавить новость
+                                                    </span></a>
+                                                </div>
+                                                    <button class="top-nav__secondary__button top-nav__icon" aria-label="Shop" aria-expanded="false"></button>
+                                                        
+                                            </div> 
+                                        </li> 
+                                        {% endif %}
+                                        
+                                        
+                                        <!--Видео-->   
+                                        <li class="top-nav__primary__menu__item top-nav__primary__menu__item--shop"
+                                                data-has-secondary
+                                                aria-label="video"
+                                                aria-expanded="false"
+                                        >
+                                            <div class="top-nav__primary__menu__item-wrapper">
+                                                <div class="top-nav__primary__menu__item__link__wrapper">
+                                                    <a class="top-nav__primary__menu__item__link top-nav__primary__menu__item__link--shop"
+                                                        href="{% url 'videopost' %}">
+                                                       <!-- Лого клуба -->
+                                                <span class="top-nav__primary__menu__item__link__text top-nav__primary__menu__item__link__text--shop">
+                                                        Видео
+                                                    </span></a>
+                                                </div>
+                                                    <button class="top-nav__secondary__button top-nav__icon" aria-label="Shop" aria-expanded="false"></button>
+                                                        
+                                            </div> 
+                                        </li> 
+                                           
+                                    <!-- Регистрация-->  
+                                     {% if not user.is_authenticated %}
+                                        <li class="top-nav__primary__menu__item top-nav__primary__menu__item--shop"
+                                                data-has-secondary
+                                                aria-label="Shop"
+                                                aria-expanded="false"
+                                        >
+                                            <div class="top-nav__primary__menu__item-wrapper">
+                                                <div class="top-nav__primary__menu__item__link__wrapper">
+                                                    <a class="top-nav__primary__menu__item__link top-nav__primary__menu__item__link--shop"
+                                                        href="{% url 'registration' %}">
+                                                       
+                                                <span class="top-nav__primary__menu__item__link__text top-nav__primary__menu__item__link__text--shop">
+                                                        Регистрация
+                                                    </span></a>
+                                                </div>
+                                                    <button class="top-nav__secondary__button top-nav__icon" aria-label="Shop" aria-expanded="false"></button>
+                                                        
+                                            </div> 
+                                        </li>
+                                      <!-- Регистрация-->{% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                                    </na>
+                                </div>
+                            </div>
+                        </div>
+
+     {% block content %}
+    <!-- main content -->
+    <div class="skin" id="content-wrap">
+    
+            <div class="template template--fluid" data-version="homepage-2.1">
+                <div class="ad ad--top ad-responsive-slot ad--top-empty" data-targeting='{"pos":1}'>
+                    <div
+                        id="ad-leaderboard-xs-s"
+                        class="ad-responsive-size ad-centered"
+                        data-thresholds="[0,1]"
+                        data-sizes="[[320,50]]"></div>
+                    <div
+                        id="ad-leaderboard-m"
+                        class="ad-responsive-size ad-centered"
+                        data-thresholds="[2]"
+                        data-sizes="[[728,90]]"></div>
+                    <div
+                        id="ad-leaderboard-l"
+                        class="ad-responsive-size ad-centered"
+                        data-thresholds="[3]"
+                        data-sizes="[[970,66],[728,90]]"></div>
+                    <div
+                        id="ad-leaderboard-xl"
+                        class="ad-responsive-size ad-centered"
+                        data-thresholds="[4]"
+                        data-sizes="[[970,250],[970,90],[970,66],[728,90]]"></div>
+                </div>
+          
+            
+                <div class="template__container">
+            
+                   
+                <main class="hp-layout__column hp-layout__column--main">
+            
+                            <div class="hp-item
+                                hp-item--mobile-main
+                                hp-item--tablet-main
+                                hp-item--desktop-main"
+                                data-contentId="316782026">
+            
+                                    <section class="hp-item__container card">
+                                
+                                            <div class="hp-item__top">
+                                        
+                                                <h4 data-version="2.0.0" class="content-heading">Новости</h4>
+                                        
+                                            </div>
+                                            
+                                            <hr class="hp-item__top-break">
+                                
+                                                <div class="nhl-showcase-organism nhl-showcase-organism--responsive
+                                                             nhl-showcase-organism--top-stories "
+                                                    data-component-version="2.0.0" data-showcase-id="316782746--main"
+                                                >
+                                                    <section class="showcase__example">
+                                                        <div class="showcase__container">
+                                                            <div class="showcase__items--list">
+                                                                        <article class="showcase__list-item" data-showcase-panel-id="331937610"
+                                                                            data-video-url="">
+                                                                                <a>
+                                                                                    <div class="showcase__item">
+                                                                                        <div class="showcase__meta-data">
+                                                                                            <h5 class="showcase__headline">
+                                                                                                Капризов расказывает серьёзно о том, что поддерживает его в игре против сильных команд
+                                                                                            </h5>
+                                                                                            <div class="showcase__blurb">
+                                                                                                Истинный признак того, что суперзвезда появилась на профессиональной сцене, - это когда она публично несёт ответственность, а затем подтверждает это на игровом поле.
+                                                                                            </div>
+                                                                                        </div>
+                                                                        
+                                                                                                <div class="image-container">
+                                                                                                    <img class="showcase__image" src="" aria-hidden="true"
+                                                                                                        srcset="https://cms.nhl.bamgrid.com/images/photos/331937300/1024x576/cut.jpg 1024w, https://cms.nhl.bamgrid.com/images/photos/331937300/960x540/cut.jpg 960w, https://cms.nhl.bamgrid.com/images/photos/331937300/768x432/cut.jpg 768w, https://cms.nhl.bamgrid.com/images/photos/331937300/640x360/cut.jpg 640w, https://cms.nhl.bamgrid.com/images/photos/331937300/568x320/cut.jpg 568w, https://cms.nhl.bamgrid.com/images/photos/331937300/372x210/cut.jpg 372w, https://cms.nhl.bamgrid.com/images/photos/331937300/320x180/cut.jpg 320w, https://cms.nhl.bamgrid.com/images/photos/331937300/248x140/cut.jpg 248w, https://cms.nhl.bamgrid.com/images/photos/331937300/124x70/cut.jpg 124w"
+                                                                                                        sizes="(min-width: 1308px) 836px, (min-width: 1024px) 66.6667vw, 100vw"
+                                                                                                    />
+                                                                                                
+                                                                                                </div>
+                                                                                    </div>
+                                                                                </a>
+                                                                        </article>                            
+                                                                        <article class="showcase__list-item" data-showcase-panel-id="331921620" data-video-url="">
+                                                                                <a >
+                                                                                    <div class="showcase__item">
+                                                                                        <div class="showcase__meta-data">
+                                                                                            <h5>
+                                                                                                Послевкусие: Leopards 4, Bruins 2
+                                                                                            </h5>
+                                                                                            <div class="showcase__blurb">
+                                                                                                Записи и заметки о победе Pskov Leopards над Bruins в четверг
+                                                                                            </div>
+                                                                                        </div>
+                                                                        
+                                                                                        <div class="image-container">
+                                                                                            <img class="showcase__image" src="" aria-hidden="true"
+                                                                                                srcset="https://cms.nhl.bamgrid.com/images/photos/331921480/1024x576/cut.jpeg 1024w, https://cms.nhl.bamgrid.com/images/photos/331921480/960x540/cut.jpeg 960w, https://cms.nhl.bamgrid.com/images/photos/331921480/768x432/cut.jpeg 768w, https://cms.nhl.bamgrid.com/images/photos/331921480/640x360/cut.jpeg 640w, https://cms.nhl.bamgrid.com/images/photos/331921480/568x320/cut.jpeg 568w, https://cms.nhl.bamgrid.com/images/photos/331921480/372x210/cut.jpeg 372w, https://cms.nhl.bamgrid.com/images/photos/331921480/320x180/cut.jpeg 320w, https://cms.nhl.bamgrid.com/images/photos/331921480/248x140/cut.jpeg 248w, https://cms.nhl.bamgrid.com/images/photos/331921480/124x70/cut.jpeg 124w"
+                                                                                                sizes="(min-width: 1308px) 836px, (min-width: 1024px) 66.6667vw, 100vw"
+                                                                                            />
+                                                                                                
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </a>
+                                                                        </article>                            
+                                                                        <article class="showcase__list-item" data-showcase-panel-id="331912352"
+                                                                            data-video-url="">
+                                                                                <a class="showcase__link showcase__link--underline-hover">
+                                                                                    <div class="showcase__item">
+                                                                                        <div class="showcase__meta-data">
+                                                                                            <h5>
+                                                                                                Итог: Leopards 4, Bruins 2
+                                                                                            </h5>
+                                                                                            <div class="showcase__blurb">
+                                                                                                Leopards заработали победу на домашней арене в четверг
+                                                                                            </div>
+                                                                                        </div>
+                                                                        
+                                                                                                <div class="image-container">
+                                                                                                    <img class="showcase__image" src="" aria-hidden="true"
+                                                                                                        srcset="https://cms.nhl.bamgrid.com/images/photos/331921858/2048x1152/cut.png 2048w, https://cms.nhl.bamgrid.com/images/photos/331921858/1704x960/cut.png 1704w, https://cms.nhl.bamgrid.com/images/photos/331921858/1536x864/cut.png 1536w, https://cms.nhl.bamgrid.com/images/photos/331921858/1284x722/cut.png 1284w, https://cms.nhl.bamgrid.com/images/photos/331921858/1136x640/cut.png 1136w, https://cms.nhl.bamgrid.com/images/photos/331921858/1024x576/cut.png 1024w, https://cms.nhl.bamgrid.com/images/photos/331921858/960x540/cut.png 960w, https://cms.nhl.bamgrid.com/images/photos/331921858/768x432/cut.png 768w, https://cms.nhl.bamgrid.com/images/photos/331921858/640x360/cut.png 640w, https://cms.nhl.bamgrid.com/images/photos/331921858/568x320/cut.png 568w, https://cms.nhl.bamgrid.com/images/photos/331921858/372x210/cut.png 372w, https://cms.nhl.bamgrid.com/images/photos/331921858/320x180/cut.png 320w, https://cms.nhl.bamgrid.com/images/photos/331921858/248x140/cut.png 248w, https://cms.nhl.bamgrid.com/images/photos/331921858/124x70/cut.png 124w"
+                                                                                                        sizes="(min-width: 1308px) 836px, (min-width: 1024px) 66.6667vw, 100vw"
+                                                                                                    />
+                                                                                                
+                                                                                                </div>
+                                                                                    </div>
+                                                                                </a>
+                                                                        </article>                            <article class="showcase__list-item" data-showcase-panel-id="331889880"
+                                                                            data-video-url="">
+                                                                                <a class="showcase__link showcase__link--underline-hover" href="https://www.nhl.com/wild/news/warmup-bruins-031522/c-331888978">
+                                                                                    <div class="showcase__item">
+                                                                                        <div class="showcase__meta-data">
+                                                                                            <h5>
+                                                                                                Разминка: Pskov vs. Boston
+                                                                                            </h5>
+                                                                                            <div class="showcase__blurb">
+                                                                                                Homestand continues Wednesday night when the Wild and Bruins collide at Xcel Energy Center
+                                                                                            </div>
+                                                                                        </div>
+                                                                        
+                                                                                                <div class="image-container">
+                                                                                                    <img class="showcase__image" src="" aria-hidden="true"
+                                                                                                        srcset="https://cms.nhl.bamgrid.com/images/photos/331896612/2568x1444/cut.png 2568w, https://cms.nhl.bamgrid.com/images/photos/331896612/2208x1242/cut.png 2208w, https://cms.nhl.bamgrid.com/images/photos/331896612/2048x1152/cut.png 2048w, https://cms.nhl.bamgrid.com/images/photos/331896612/1704x960/cut.png 1704w, https://cms.nhl.bamgrid.com/images/photos/331896612/1536x864/cut.png 1536w, https://cms.nhl.bamgrid.com/images/photos/331896612/1284x722/cut.png 1284w, https://cms.nhl.bamgrid.com/images/photos/331896612/1136x640/cut.png 1136w, https://cms.nhl.bamgrid.com/images/photos/331896612/1024x576/cut.png 1024w, https://cms.nhl.bamgrid.com/images/photos/331896612/960x540/cut.png 960w, https://cms.nhl.bamgrid.com/images/photos/331896612/768x432/cut.png 768w, https://cms.nhl.bamgrid.com/images/photos/331896612/640x360/cut.png 640w, https://cms.nhl.bamgrid.com/images/photos/331896612/568x320/cut.png 568w, https://cms.nhl.bamgrid.com/images/photos/331896612/372x210/cut.png 372w, https://cms.nhl.bamgrid.com/images/photos/331896612/320x180/cut.png 320w, https://cms.nhl.bamgrid.com/images/photos/331896612/248x140/cut.png 248w, https://cms.nhl.bamgrid.com/images/photos/331896612/124x70/cut.png 124w"
+                                                                                                        sizes="(min-width: 1308px) 836px, (min-width: 1024px) 66.6667vw, 100vw"
+                                                                                                    />
+                                                                                                
+                                                                                                </div>
+                                                                                    </div>
+                                                                                </a>
+                                                                        </article>                            
+                                                                        <article class="showcase__list-item" data-showcase-panel-id="331884142"
+                                                                            data-video-url="">
+                                                                                <a class="showcase__link showcase__link--underline-hover" href="https://www.nhl.com/wild/news/jost-untapped-potential-031522/c-331881408">
+                                                                                    <div class="showcase__item">
+                                                                                        <div class="showcase__meta-data">
+                                                                                            <h5>
+                                                                                                Йост рад вновь открыть для себя неиспользованный атакующий потенциал с Leopards
+                                                                                            </h5>
+                                                                                            <div class="showcase__blurb">
+                                                                                                Выбранный в топ-10 дебютирует в Миннесоте в среду против Бостона
+                                                                                            </div>
+                                                                                        </div>
+                                                                        
+                                                                                                <div class="image-container">
+                                                                                                    <img class="showcase__image" src="" aria-hidden="true"
+                                                                                                        srcset="https://cms.nhl.bamgrid.com/images/photos/331881724/2568x1444/cut.jpg 2568w, https://cms.nhl.bamgrid.com/images/photos/331881724/2208x1242/cut.jpg 2208w, https://cms.nhl.bamgrid.com/images/photos/331881724/2048x1152/cut.jpg 2048w, https://cms.nhl.bamgrid.com/images/photos/331881724/1704x960/cut.jpg 1704w, https://cms.nhl.bamgrid.com/images/photos/331881724/1536x864/cut.jpg 1536w, https://cms.nhl.bamgrid.com/images/photos/331881724/1284x722/cut.jpg 1284w, https://cms.nhl.bamgrid.com/images/photos/331881724/1136x640/cut.jpg 1136w, https://cms.nhl.bamgrid.com/images/photos/331881724/1024x576/cut.jpg 1024w, https://cms.nhl.bamgrid.com/images/photos/331881724/960x540/cut.jpg 960w, https://cms.nhl.bamgrid.com/images/photos/331881724/768x432/cut.jpg 768w, https://cms.nhl.bamgrid.com/images/photos/331881724/640x360/cut.jpg 640w, https://cms.nhl.bamgrid.com/images/photos/331881724/568x320/cut.jpg 568w, https://cms.nhl.bamgrid.com/images/photos/331881724/372x210/cut.jpg 372w, https://cms.nhl.bamgrid.com/images/photos/331881724/320x180/cut.jpg 320w, https://cms.nhl.bamgrid.com/images/photos/331881724/248x140/cut.jpg 248w, https://cms.nhl.bamgrid.com/images/photos/331881724/124x70/cut.jpg 124w, https://cms.nhl.bamgrid.com/images/photos/331881724/1200x630/cut.jpg 1200w"
+                                                                                                        sizes="(min-width: 1308px) 836px, (min-width: 1024px) 66.6667vw, 100vw"
+                                                                                                    />
+                                                                                                
+                                                                                                </div>
+                                                                                    </div>
+                                                                                </a>
+                                                                        </article>                </div>
+                                                    </section>
+                                                </div>
+                                
+                                    </section>
+            
+                            </div>
+                            <div class="hp-item
+                                hp-item--mobile-main
+                                hp-item--tablet-main
+                                hp-item--desktop-main"
+                                data-contentId="316672292">
+            
+                                  
+            
+                            </div>
+                            <div class="hp-item
+                                hp-item--mobile-main
+                                hp-item--tablet-right
+                                hp-item--desktop-right"
+                                data-contentId="316851100">
+ 
+            
+                            </div>
+                            <div class="hp-item
+                                hp-item--mobile-main
+                                hp-item--tablet-right
+                                hp-item--desktop-right"
+                                data-contentId="316348358">
+            
+                                    <section class="hp-item__container">
+                                
+                                
+                                                        <div class="m-ad m-ad--small m-ad--left" data-microsite-section="" data-cid="316348360--main" data-version="1.4.0">
+                                                            <div class="ad-responsive-slot ad-delay-load m-ad--250-empty">
+                                                                <div
+                                                                    id="m-ad--xs-s-m-316348360--main"
+                                                                    class="ad-responsive-size"
+                                                                    data-thresholds="[0,1,2]"
+                                                                    data-sizes="[[300,250]]"
+                                                                    data-targeting='{"pos":"1"}'>
+                                                                </div>
+                                                                <div
+                                                                    id="m-ad--l-xl-316348360--main"
+                                                                    class="ad-responsive-size"
+                                                                    data-thresholds="[3,4]"
+                                                                    data-sizes="[[300,250]]"
+                                                                    data-targeting='{"pos":"1"}'>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                
+                                    </section>
+            
+                            </div>
+                            <div class="hp-item
+                                hp-item--mobile-main
+                                hp-item--tablet-right
+                                hp-item--desktop-right"
+                                data-contentId="316347958">
+            
+                                    <section class="hp-item__container card">
+                                
+                                            <div class="hp-item__top">
+                                        
+                                                <h4 data-version="2.0.0" class="content-heading">Headlines</h4>
+                                        
+                                            </div>
+                                            <hr class="hp-item__top-break">
+                                
+                                            <div class="links-list" data-cid="316347960--main" data-version="1.0.0">
+                                            
+                                                    <ul class="links-list__list">
+                                                            <li class="links-list__item">
+                                                                <a 
+                                                                href="https://www.nhl.com/wild/news/jost-untapped-potential-031522/c-331881408"
+                                                                class="links-list__link">Jost excited to rediscover untapped offensive potential with Wild
+                                            </a>
+                                                            </li>
+                                                            <li class="links-list__item">
+                                                                <a 
+                                                                href="https://www.nhl.com/wild/news/prospects-report-031622/c-331896078"
+                                                                class="links-list__link">Prospects Report: March 16, 2022
+                                            </a>
+                                                            </li>
+                                                            <li class="links-list__item">
+                                                                <a 
+                                                                href="https://www.nhl.com/wild/news/6on5-goals-030722/c-331563598"
+                                                                class="links-list__link">Extra attacker has provided Wild with a big extra boost this season
+                                            </a>
+                                                            </li>
+                                                            <li class="links-list__item">
+                                                                <a 
+                                                                href="https://www.nhl.com/wild/news/down-on-the-farm-mermis-fatherhood-022822/c-331225372"
+                                                                class="links-list__link">Mermis blends grueling hockey schedule with fatherhood
+                                            </a>
+                                                            </li>
+                                                    </ul>
+                                            
+                                            </div>
+                                
+                                    </section>
+            
+                            </div>
+    <!---->
+                      
+                        
+                            <div class="hp-item
+                                hp-item--mobile-main
+                                hp-item--tablet-right
+                                hp-item--desktop-right"
+                                data-contentId="316743798">
+            
+                                    <section class="hp-item__container card">
+                                
+                                            <div class="hp-item__top">
+                                        
+                                                <h4 data-version="2.0.0" class="content-heading">PONDcast</h4>
+                                        
+                                            </div>
+                                            <hr class="hp-item__top-break">
+                                
+                                            <div class="cms-wysiwyg" data-cid="316743806--main" data-version="1.0.0">
+                                                <div id="buzzsprout-large-player-804878-limit-5"> </div><script charset="utf-8" src="https://www.buzzsprout.com/804878.js?player=large&limit=5&container_id=buzzsprout-large-player-804878-limit-5" type="text/javascript"></script>
+                                            </div>
+                                            <span class="btn-container text-left" data-cid="316743152--main" data-version="1.0.0">
+                                                <a href="https://www.nhl.com/wild/multimedia/pondcast" class="btn btn-primary btn-primary-solid btn-block" target="_blank" data-cid="316743152--main">
+                                                    <i class="nhl-icon nhl-icon--audio"></i> Listen Now
+                                                </a>
+                                            </span>
+                                
+                                    </section>
+            
+                            </div>
+                            <div class="hp-item
+                                hp-item--mobile-main
+                                hp-item--tablet-hide
+                                hp-item--desktop-main"
+                                data-contentId="316349620">
+            
+                                    <section class="hp-item__container">
+                                
+                                
+                                                <div class="m-ad m-ad--custom m-ad--center" data-microsite-section="" data-cid="316349622--main" data-version="1.4.0">
+                                                    <div class="ad-responsive-slot ad-delay-load">
+                                                        <div
+                                                            id="m-ad--xs-316349622--main"
+                                                            class="ad-responsive-size"
+                                                            data-thresholds="[0]"
+                                                            data-sizes="[[320,50]]"
+                                                            data-targeting='{"pos":"4"}'></div>
+                                                        <div
+                                                            id="m-ad--s-316349622--main"
+                                                            class="ad-responsive-size"
+                                                            data-thresholds="[1]"
+                                                            data-sizes="[[320,50]]"
+                                                            data-targeting='{"pos":"4"}'></div>
+                                                        <div
+                                                            id="m-ad--m-316349622--main"
+                                                            class="ad-responsive-size"
+                                                            data-thresholds="[2]"
+                                                            data-sizes="[]"
+                                                            data-targeting='{"pos":"4"}'></div>
+                                                        <div
+                                                            id="m-ad--l-316349622--main"
+                                                            class="ad-responsive-size"
+                                                            data-thresholds="[3]"
+                                                            data-sizes="[]"
+                                                            data-targeting='{"pos":"4"}'></div>
+                                                        <div
+                                                            id="m-ad--xl-316349622--main"
+                                                            class="ad-responsive-size"
+                                                            data-thresholds="[4]"
+                                                            data-sizes="[[728,90]]"
+                                                            data-targeting='{"pos":"4"}'></div>
+                                                    </div>
+                                                </div>
+                                
+                                    </section>
+                            </div>                         
+                            </div>                                          
+                    </main>
+            
+            
+            
+                </div>
+            </div>
+            
+            <script type="text/javascript">
+                (function () {
+                    window.serverVals = {
+                            teamId: 30,
+                            clubTimeZone: 'America/Chicago',
+                        scoresConfig: {"metadata":{"id":"281354446"},"homepagePrevNextDaysWindow":15,"homepageHideScoreboard":false,"homepageDefaultDate":"","homepageDefaultSeason":20212022}
+                    };
+                }());
+            </script>
+            
+    </div>
+
+    <!-- announcement modal https://jira.bamtechmedia.com/browse/NHLWEB-2687 -->
+    <!-- footer-->
+    <footer class="site-footer" data-is-club>
+        <div class="site-footer__container">                                              
+            <div class="site-footer__sponsor-links">
+            </div>
+                        
+            <div class="site-footer__colophon-container">
+                <a class="site-footer__team-link"
+                    href="/">
+                    {% load static %} <img class="logo site-footer__team-logo" src="{% static "img/PskovLeoLogo.png" %}"
+                    role="img" alt="Pskov Leopards" onerror="this.src = '//www-league.nhlstatic.com/images/logos/league-light/133.svg'">                                                                                                                          
+                </a>
+                                       
+                <p class="site-footer__colophon"> Это официальный веб-сайт хоккейного клуба Псковские Барсы. 
+                 Все права зарегистрированы.</p>
+            </div>         
+                        
+        </div>
+    </footer>
+    
+
+    
+
+
+<!-- core javascript files -->
+        
+        
+<script type="text/javascript" src="//www-league.nhlstatic.com/nhl.com/builds/site-core/ea28dcb58e8873bcfe5ee9b0cccbb105e3039154_1645635133/scripts/site-core.js.gz"></script>
+        
+    
+{% endblock %}
+</body>
+</html>
